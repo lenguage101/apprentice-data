@@ -25,7 +25,7 @@ let addExtraWeek = ( week  => {
             week[day].push(obj);
         })
     }
-    // console.log(week);
+    console.log(week);
 })
 
 addExtraWeek(week)
