@@ -92,36 +92,3 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
     .catch( err => {
         console.log(err)
     })
-
-// let week = {
-//     'Monday': [],
-//     'Tuesday': [],
-//     'Wednesday': [],
-//     'Thursday': [],
-//     'Friday': [],
-//     'Saturday': [],
-//     'Sunday': []
-// }
-
-// let addExtraWeek = ( week  => {
-//     let weeksToWater = 12;
-//     for (let i = 1; i <= weeksToWater; i++) {
-//         let addSevenDays = 7;    
-//         let weekNumber = 'Week ' + i;
-//         Object.keys(week).forEach( (day , j) => {
-//             let obj = {};
-//             let addOneDay = 1;
-//             if (i === 1) {  
-//                 obj[weekNumber] = 'Day '+ (j + addOneDay);                
-//             } else {
-//                 //Finds how many days to skip between each watering session
-//                 let daysToSkip = Number(week[day][i-2]['Week '+ (i - 1)].match(/\d+/g).map(Number));
-//                 obj[weekNumber] = 'Day ' + (daysToSkip+ addSevenDays);                
-//             }
-//             week[day].push(obj);
-//         })
-//     }
-//     console.log(week);
-// })
-
-// addExtraWeek(week)
