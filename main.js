@@ -28,22 +28,22 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
             for (let j = 0; j < wateringPlants[i].days.length; j++) {
                 let daysArray = wateringPlants[i].days;                
                 let weekNumber = daysArray[j] / 7;
-                weekNumber = Math.round(weekNumber);
+                weekNumber = Math.floor(weekNumber);
                 if (daysArray[j] > days) {
                     console.log('Skipped');
                 } else if (daysArray[j] % 7 === 1) {
-                    console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j]} of week ${weekNumber} on Monday`);
+                    console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j]} of week ${weekNumber + 1} on Monday`);
                 } else if (daysArray[j] % 7 === 2) {
-                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber} on Tuesday`);
+                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber + 1} on Tuesday`);
                 } else if (daysArray[j] % 7 === 3) {
-                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber} on Wednesday`);
+                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber + 1} on Wednesday`);
                 } else if (daysArray[j] % 7 === 4) {
-                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber} on Thursday`);
+                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber + 1} on Thursday`);
                 } else if (daysArray[j] % 7 === 5) {
-                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber} on Friday`);
+                    console.log(`${wateringPlants[i].name} was watered of Day ${daysArray[j]} of week ${weekNumber + 1} on Friday`);
                 } else if (daysArray[j] % 7 === 6) {
                     if ((daysArray[j] - 1) % 7 !== 6 || (daysArray[j] - 1) % 7 !== 0) {
-                        console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j] - 1} of week ${weekNumber} on Friday ` + 
+                        console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j] - 1} of week ${weekNumber + 1} on Friday ` + 
                                     `instead of Day ${daysArray[j]} on Saturday`)
                     }
                 } else {
@@ -51,7 +51,7 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
                         if(daysArray[j] + 1 >= 84){
                             console.log(`End of Cycle`)
                         } else {
-                            console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j] + 1} of week ${weekNumber} on Monday ` +
+                            console.log(`${wateringPlants[i].name} was watered on Day ${daysArray[j] + 1} of week ${weekNumber + 1} on Monday ` +
                                         `instead of Day ${daysArray[j]} on Sunday`)                        }
                     }
                 } 
