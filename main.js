@@ -1,7 +1,7 @@
 let wateringPlants;
 let days = 84;
-
 let schedule = document.getElementById('schedule');
+//Fetches a promise of a json file
 fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf79ed31/raw/71cde9402a8cf5753aa14f757eecfc24eb749bf3/apprentice-data.json')
     .then((resp) => {
         return resp.json();
@@ -23,19 +23,20 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
         })
         //Loops through the wateringPlant database
         for (let i = 0; i < wateringPlants.length; i++) {
-            //Loops through the array of days of each plants to see 
-            console.log(wateringPlants[i]);;
+            //Add HTML elements to index.html
             let list = document.createElement('ul');
             let para = document.createElement('p');
             let plantName = document.createTextNode(`${wateringPlants[i].name} is watered every ${wateringPlants[i].water_after}`);
             para.appendChild(plantName);
             schedule.appendChild(para);
-            schedule.appendChild(list)
+            schedule.appendChild(list)            
+            //Loops through the array of days of each plants to see 
             for (let j = 0; j < wateringPlants[i].days.length; j++) {
                 let daysArray = wateringPlants[i].days;                
                 let weekNumber = daysArray[j] / 7;
                 let li = document.createElement('li')
                 weekNumber = Math.floor(weekNumber);
+                //Conditionals to see which number falls on which days
                 if (daysArray[j] > days) {
                     // console.log('Skipped');
                 } else if (daysArray[j] % 7 === 1) {
@@ -68,7 +69,7 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
                          (daysArray[j] - 1) % 7 !== 0 ) {
                             let liText = document.createTextNode( `Week ${weekNumber + 1} - ${wateringPlants[i].name} was watered on ` 
                                                                 + `Day ${daysArray[j] - 1} on Friday instead of Day ${daysArray[j]} `
-                                                                + `since falls on a Saturday`);
+                                                                + `since it falls on a Saturday`);
                             li.appendChild(liText);
                             list.appendChild(li);
                     }
@@ -80,7 +81,7 @@ fetch('https://gist.githubusercontent.com/lenguage101/315dfdebc2c010ee899a2ddcaf
                         } else {
                             let liText = document.createTextNode( `Week ${weekNumber + 1} - ${wateringPlants[i].name} was watered on ` 
                                                                 + `Day ${daysArray[j] + 1} on Monday instead of Day ${daysArray[j]} `
-                                                                + `since falls on a Sunday`);
+                                                                + `since it falls on a Sunday`);
                             li.appendChild(liText);
                             list.appendChild(li);
                         }
